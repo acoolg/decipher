@@ -116,3 +116,30 @@ body {
 .no-scroll::-webkit-scrollbar {
     display: none;               /* Safari and Chrome */
 }
+
+#tool{
+    width: 50%;
+    height: 50%;
+    overflow-y: scroll;
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    flex-wrap: wrap;
+    background-color: #fff;
+    border-radius: 10px;
+    /* overflow: hidden; */
+}
+
+.tool{
+    margin: 10px;
+    width: 5rem;
+    height: 2rem;
+    background-color: #5b5b9f;
+    border-radius: 5px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}

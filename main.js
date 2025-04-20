@@ -1,21 +1,28 @@
 import { handleCommand } from "./asset/data/command.js";
+import { tool } from "./asset/data/tool.js";
 
 export var cipherText = "";
 var text = document.getElementById('textBox');
 var terminal = document.getElementById('terminal');
-
-var tool = [
-    {
-        name: "頻率分析",
-        dir: "asset/tool/frequency_analysis.js"
-    }
-]
+var toolBox = false
 
 document.getElementById("import").addEventListener("click", () => {
-    window.open("index.html", "mozillaWindow",`left=${window.screen.width/2 - 275},top=${window.screen.height/2 - 160},width=550,height=320`);
+    if (toolBox) {
+        document.getElementById("tool").style.display = "none"
+        toolBox = false
+    } else {
+        document.getElementById("tool").style.display = "flex"
+        toolBox = true
+    }
 });
 
-window.importTool() = function (toolName) {
+tool.forEach(e => {
+    document.getElementById("tool").innerHTML += `
+    <div class="tool" onclick="window.importTool('${e.name}')">${e.name}</div>
+    `
+});
+
+window.importTool = function (toolName) {
     var nameList = tool.map(tool => tool.name)
     if (!nameList.includes(toolName)) return
     var script = document.createElement("script");
