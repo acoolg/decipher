@@ -50011,7 +50011,11 @@ function findWord(word) {
     var b = word.split("")
     b.forEach((element, index, arr) => {
         if(!element == "?"){
-
+            var d = a
+            a = []
+            d.forEach(e => {
+                
+            })
         }
     });
 }
