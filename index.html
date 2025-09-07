@@ -1,32 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" class="no-scroll">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="asset/style/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <meta
+      http-equiv="X-Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'"
+    />
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="no-scroll" id="body">
-    <div class="up">
-        <div class="side-bar-upper" id="import">
-            <i class="fa-solid fa-plus fa-xl" style="color: #000000;"></i>
-        </div>
-        <div class="terminal">
-            <div class="terminal-switch">&gt</div>
-            <input type="text" id="terminal">
-        </div> 
+<body>
+    <div class="title">
+        <span>decipher</span>
+        <input class="search-bar"></input>
     </div>
-    <div class="mid">
-        <div class="side-bar"></div>
-        <div class="line-count no-scroll" id="lineCount"></div>
-        <div class="text-box" id="textBox">
-        </div>
-    </div>
-    <div class="down">
-        <div class="bellow-bar"></div>
-    </div>
-    <div id="tool" class="no-scroll"></div>
-    <script src="main.js" type="module"></script>
+    <div class="cmd"></div>
+    <div class="sidebar"></div>
+    <div class="text-edit"></div>
+    <script type="module" src="index.js"></script>
 </body>
 </html>
