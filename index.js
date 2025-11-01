@@ -1,8 +1,8 @@
-import { app, BrowserWindow } from "electron";
+const electron = require("electron");
 var win;
 
 const starterWindow = () => {
-    const win = new BrowserWindow({
+    const win = new electron.BrowserWindow({
         width: 800,
         height: 600,
         titleBarStyle: "hidden",
@@ -33,9 +33,8 @@ const starterWindow = () => {
     
 };
 
-app.whenReady().then(starterWindow);
+electron.app.whenReady().then(starterWindow);
 
-app.on("window-all-closed", () => {
-    if (process.platform !== "darwin") app.quit();
+electron.app.on("window-all-closed", () => {
+    if (process.platform !== "darwin") electron.app.quit();
 });
-
