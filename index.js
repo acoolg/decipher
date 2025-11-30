@@ -1,5 +1,6 @@
 const electron = require("electron");
 var win;
+require('./plugin.js');
 
 const starterWindow = () => {
     const win = new electron.BrowserWindow({
@@ -17,8 +18,9 @@ const starterWindow = () => {
         minHeight: 300,
         minWidth: 400,
         webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
+            // nodeIntegration: true,
+            // contextIsolation: false,
+            preload: __dirname + "/preload.js",
         }
     });
 

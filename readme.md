@@ -4,4 +4,5 @@
 
 <p align="center">an advance cipher tool for advanced people</p>
 
-# how to use
+# what is decipher
+decipher is a cipher app

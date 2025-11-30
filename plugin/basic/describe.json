@@ -1,5 +1,6 @@
 {
     "name": "basic",
     "discription": "eeeeeeeeeee",
-    "main": "index.js"
+    "main": "index.js",
+    "tab": "index.html"
 }

@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const { spawn, fork } = require('node:child_process');
+const { NodeVM } = require('vm2');
 
 
 // read and run plugin
@@ -15,6 +16,7 @@ fs.readdir(pluginPath, (err, files) => {
 function readPlugin(files) {
     files.forEach((e) => {
         fs.readFile(path.join(pluginPath, e, "describe.json"),"utf-8",(err, data) => {
+            if (data == undefined || data == null) return
                 console.log(data);
                 doPlugin(data, e)
             }
@@ -22,22 +24,24 @@ function readPlugin(files) {
     });
 }
 
-const child = fork('./sandbox.js');
-
 // run plugin
 function doPlugin(data, pluginFilePath) {
     const json = JSON.parse(data);
     var mainProcessPath = path.join(pluginPath, pluginFilePath, json.main)
     fs.readFile(mainProcessPath, "utf-8", (err, data) => {
         if (err) throw err;
-        child.send({ code: data });
+        createSandboxedPlugin().run(data)
     })
 }
 
-function runPlugin() {
-
+function createSandboxedPlugin(api) {
+    return new NodeVM({
+        console: "inherit",
+        sandbox: { api }, // 只暴露 api
+        require: {
+          external: false,
+          builtin: [] // 完全不允許內建模組
+        },
+        timeout: 3000
+    });
 }
-
-child.on('message', (result) => {
-  console.log('Result from child:', result);
-});
