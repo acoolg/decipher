@@ -12,16 +12,16 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "@eslint/js": "^9.39.0",
-    "electron": "^38.0.0",
+    "@eslint/js": "^10.0.1",
+    "electron": "^40.2.1",
     "electron-rebuild": "^3.2.9",
-    "eslint": "^9.39.0",
-    "globals": "^16.5.0"
+    "eslint": "^10.0.0",
+    "globals": "^17.3.0"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
-    "isolated-vm": "^6.0.1",
+    "fs": "^0.0.2",
+    "isolated-vm": "^6.0.2",
     "vm": "^0.1.0",
-    "vm2": "^3.10.0"
+    "vm2": "^3.10.4"
   }
 }

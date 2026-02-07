@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
-const { spawn, fork } = require('node:child_process');
+// const { spawn, fork } = require('node:child_process');
 const { NodeVM } = require('vm2');
-
+const runTime = require("./compoment/runtime/runtime")
 
 // read and run plugin
 const pluginPath = path.join(__dirname, "plugin");
@@ -30,18 +30,7 @@ function doPlugin(data, pluginFilePath) {
     var mainProcessPath = path.join(pluginPath, pluginFilePath, json.main)
     fs.readFile(mainProcessPath, "utf-8", (err, data) => {
         if (err) throw err;
-        createSandboxedPlugin().run(data)
+        const runtime = new runTime();
+        runtime.run(data);
     })
-}
-
-function createSandboxedPlugin(api) {
-    return new NodeVM({
-        console: "inherit",
-        sandbox: { api }, // 只暴露 api
-        require: {
-          external: false,
-          builtin: [] // 完全不允許內建模組
-        },
-        timeout: 3000
-    });
 }

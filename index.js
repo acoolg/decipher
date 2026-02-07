@@ -24,7 +24,7 @@ const starterWindow = () => {
         }
     });
 
-    win.loadFile("index.html");
+    win.loadFile("src/index.html");
     if (process.platform !== "darwin") {
         win.maximize();
     } else {

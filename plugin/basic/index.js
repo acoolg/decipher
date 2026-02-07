@@ -1,1 +1,3 @@
-console.log("hello world");
+const a = require("meeek")
+
+a.run("'hello world")
