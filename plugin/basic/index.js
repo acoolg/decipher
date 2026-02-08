@@ -1,3 +1,3 @@
-const a = require("meeek")
+const a = require("console")
 
-a.run("'hello world")
+a.log("'hello world")

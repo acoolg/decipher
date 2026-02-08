@@ -31,6 +31,6 @@ function doPlugin(data, pluginFilePath) {
     fs.readFile(mainProcessPath, "utf-8", (err, data) => {
         if (err) throw err;
         const runtime = new runTime();
-        runtime.run(data);
+        runtime.run(mainProcessPath);
     })
 }
