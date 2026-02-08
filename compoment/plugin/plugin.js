@@ -2,10 +2,10 @@ const fs = require("fs");
 const path = require("path");
 // const { spawn, fork } = require('node:child_process');
 const { NodeVM } = require('vm2');
-const runTime = require("./compoment/runtime/runtime")
+const runTime = require("../runtime/runtime")
 
 // read and run plugin
-const pluginPath = path.join(__dirname, "plugin");
+const pluginPath = path.join(__dirname, "../../", "plugin");
 
 // extract plugin
 fs.readdir(pluginPath, (err, files) => {

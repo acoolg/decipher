@@ -1,12 +1,11 @@
 const electron = require("electron");
 var win;
-require('./plugin.js');
+require('./compoment/plugin/plugin');
 
 const starterWindow = () => {
     const win = new electron.BrowserWindow({
         width: 800,
         height: 600,
-        titleBarStyle: "hidden",
         ...(process.platform !== "darwin" ? { titleBarOverlay: true } : {}),
         // fullscreen: true
         titleBarStyle: "hidden",

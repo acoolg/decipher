@@ -1,3 +1,3 @@
 const a = require("console")
 
-a.log("'hello world")
+a.log("hello world")
