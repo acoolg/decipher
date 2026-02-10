@@ -1,27 +1,30 @@
 {
-  "name": "cipherde",
-  "version": "1.0.0",
-  "description": "e",
-  "main": "index.js",
-  "scripts": {
-    "test": "electron ."
-  },
-  "keywords": [
-    "e"
-  ],
-  "author": "",
-  "license": "MIT",
-  "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "electron": "^40.2.1",
-    "electron-rebuild": "^3.2.9",
-    "eslint": "^10.0.0",
-    "globals": "^17.3.0"
-  },
-  "dependencies": {
-    "fs": "^0.0.2",
-    "isolated-vm": "^6.0.2",
-    "vm": "^0.1.0",
-    "vm2": "^3.10.4"
-  }
+    "name": "cipherde",
+    "version": "1.0.0",
+    "description": "e",
+    "main": "index.js",
+    "scripts": {
+        "test": "electron ."
+    },
+    "keywords": [
+        "e"
+    ],
+    "author": "",
+    "license": "MIT",
+    "devDependencies": {
+        "@electron/rebuild": "^4.0.3",
+        "@eslint/js": "^10.0.1",
+        "electron": "^40.2.1",
+        "eslint": "^10.0.0",
+        "globals": "^17.3.0"
+    },
+    "dependencies": {
+        "fft-js": "^0.0.12",
+        "fs": "^0.0.2",
+        "isolated-vm": "^6.0.2",
+        "mathjs": "^15.1.1",
+        "text-cryptography": "^1.1.0",
+        "vm": "^0.1.0",
+        "vm2": "^3.10.4"
+    }
 }

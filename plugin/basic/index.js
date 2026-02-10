@@ -1,3 +1,7 @@
-const a = require("console")
+const ui = require("@decipher/ui")
+var a = new ui.Bar()
+const b = require("./a")
 
-a.log("hello world")
+b()
+
+a.say("hello")

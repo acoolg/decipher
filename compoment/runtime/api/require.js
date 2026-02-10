@@ -1,41 +1,25 @@
 const fs = require("fs");
 const path = require("path");
+const ALLOWED_LIBS = require("./api/libraries");
 
-const blockList = new Set([
-    "fs",
-    "vm",
-    "isolated-vm",
-    "vm2",
-    "child_process",
-    "electron",
-]);
+module.exports.fakeRequire = (namer) => {
+    if (ALLOWED_LIBS[namer]) {
+        console.log(`[${name}]` + "嘗試存取" + namer);
+        return ALLOWED_LIBS[namer];
+    } else if (namer.startsWith("./")) {
+        const resolvedPath = path.resolve(dir, namer);
+        console.log(`[${name}]` + "嘗試存取" + resolvedPath);
+        const relative = path.relative(dir, resolvedPath);
 
-module.exports = function createRequire(baseDir) {
-    return function require(name) {
-        if (blockList.has(name)) {
-            throw new Error(`Blocked require: ${name}`);
+        // 如果相對路徑是以 .. 開頭，代表它試圖跳出 dir 目錄
+        const isOutside =
+            relative.startsWith("..") || path.isAbsolute(relative);
+
+        if (isOutside) {
+            throw new Error(`[Security] 試圖非法存取目錄外檔案: ${namer}`);
         }
 
-        if (name === "console") {
-            return console;
-        }
-
-        if (name.startsWith("./")) {
-            const filePath = path.resolve(baseDir, name);
-            const code = fs.readFileSync(filePath, "utf-8");
-
-            const module = { exports: {} };
-            const localRequire = createRequire(path.dirname(filePath));
-
-            new Function("require", "module", "exports", code)(
-                localRequire,
-                module,
-                module.exports,
-            );
-
-            return module.exports;
-        }
-
-        throw new Error(`Unknown module: ${name}`);
-    };
+        return require(resolvedPath);
+    }
+    throw new Error(`[Security] 模組 "${namer}" 不在白名單中，禁止使用。`);
 };
