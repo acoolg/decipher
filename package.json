@@ -23,11 +23,8 @@
     "dependencies": {
         "fft-js": "^0.0.12",
         "fs": "^0.0.2",
-        "isolated-vm": "^6.0.2",
         "mathjs": "^15.1.1",
-        "text-cryptography": "^1.1.0",
-        "vm": "^0.1.0",
-        "vm2": "^3.10.4"
+        "text-cryptography": "^1.1.0"
     },
     "build": {
         "appId": "decipher",
