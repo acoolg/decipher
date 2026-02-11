@@ -1,0 +1,8 @@
+directories:
+  output: dist
+  buildResources: build
+appId: decipher
+mac:
+  category: your.app.category.type
+files: []
+electronVersion: 40.2.1
