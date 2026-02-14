@@ -48,7 +48,7 @@ module.exports = class DumbRuntime {
 
         // 3. 注入環境變數 (require, module, exports)
         try {
-            const runner = new Function("require", "module", "exports", "__dirname", "__filename", `
+            const runner = new Function("require", "module", "exports", "__dirname", "__filename",`
                 (function(require, module, exports, __dirname, __filename) { 
                     "use strict"; 
                     ${code} 

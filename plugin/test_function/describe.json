@@ -1,0 +1,6 @@
+{
+    "name": "test_function",
+    "discription": "a plugin to test is every thing working",
+    "main": "index.js",
+    "tab": "index.html"
+}

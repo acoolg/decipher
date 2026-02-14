@@ -1,3 +1,5 @@
+const { ipcMain } = require("electron");
+
 module.exports.Bar = class Bar {
     constructor(x, y) {
         this.x = x;
@@ -5,6 +7,7 @@ module.exports.Bar = class Bar {
     }
 
     say(text) {
+        ipcMain
         console.log(text);
     }
 }
